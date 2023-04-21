@@ -23,7 +23,7 @@
             android:text="Пропустить"
             android:textColor="#57A9FF"
             android:textSize="20dp"
-            android:textStyle="normal"
+            android:textStyle="bold"
             />
 
         <ImageView
