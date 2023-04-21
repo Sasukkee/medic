@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#C9D4FB"
+    android:backgroundTintMode="add"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingLeft="10dp"
+        android:paddingBottom="170dp">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:hapticFeedbackEnabled="false"
+            app:srcCompat="@drawable/back"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введитке код из E-mail"
+        android:textStyle="normal|bold"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/num1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_margin="10dp"
+            android:background="@drawable/emailbg"
+            android:textSize="22dp"
+            android:paddingStart="18dp"
+            android:maxLength="1">
+            <requestFocus />
+        </EditText>
+        <EditText
+            android:id="@+id/num2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_margin="10dp"
+            android:background="@drawable/emailbg"
+            android:textSize="22dp"
+            android:paddingStart="18dp"
+            android:maxLength="1"
+            />
+        <EditText
+            android:id="@+id/num3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_margin="10dp"
+            android:background="@drawable/emailbg"
+            android:textSize="22dp"
+            android:paddingStart="18dp"
+            android:maxLength="1"
+            />
+        <EditText
+            android:id="@+id/num4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_margin="10dp"
+            android:background="@drawable/emailbg"
+            android:textSize="22dp"
+            android:paddingStart="18dp"
+            android:maxLength="1"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txttimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTint="#939396"
+        android:gravity="center"
+        android:text="Отправить код повторно можно\n будет через 59 секунд " />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

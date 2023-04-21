@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#C9D4FB"
+    android:backgroundTintMode="add"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="54dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingBottom="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="20dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/hello" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Добро пожаловать!"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingBottom="120dp"
+        android:text="Войдите, чтобы пользоваться функциями\nприложения"
+        android:textColor="#000000"
+        android:textSize="17dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вход по E-mail" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg"
+            android:ems="18"
+            android:hint="example@mail.ru"
+            android:inputType="textEmailAddress"
+            android:paddingStart="10dp"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="170dp">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:backgroundTint="#C9D4FB"
+            android:enabled="true"
+            android:text="Далее"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Small"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Или войдите с помощью">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:text="Войти с Яндекс"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textStyle="normal|bold"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Small" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
