@@ -10,6 +10,11 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
@@ -48,9 +53,31 @@ public class Login extends AppCompatActivity {
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, ActivityCode.class);
-                startActivity(intent);
+                code();
             }
         });
+
+
     }
+    public void code() {
+        EditText edit = findViewById(R.id.editTextTextEmailAddress);
+        SessionManager sessionManager = new SessionManager(this);
+        String email = edit.getText().toString();
+        sessionManager.saveEmail(email);
+        ApiClient apiClient = new ApiClient();
+        apiClient.getApiService(this).sendCode(email).enqueue(new Callback<SendCodeResponse>() {
+            @Override
+            public void onResponse(Call<SendCodeResponse> call, Response<SendCodeResponse> response) {
+                if(!response.isSuccessful()) {return;}
+                Intent intent = new Intent(Login.this,ActivityCode.class);
+                startActivity(intent);
+                return;
+            }
+            @Override
+            public void onFailure(Call<SendCodeResponse> call, Throwable t) {
+                Toast toast=Toast.makeText(Login.this, "Ошибка", Toast.LENGTH_LONG);
+                toast.show();;
+            }
+        });
+    };
 }

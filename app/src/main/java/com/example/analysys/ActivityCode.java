@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ActivityCode extends AppCompatActivity {
 
     private TextView textTimer;
@@ -20,6 +24,7 @@ public class ActivityCode extends AppCompatActivity {
     private EditText code3;
     private EditText code4;
     private ImageButton back;
+    private String codik;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +113,7 @@ public class ActivityCode extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (code1.getText().toString().equals("")){
+                if (code4.getText().toString().equals("")){
                     code3.requestFocus();
                 }
             }
@@ -117,6 +122,8 @@ public class ActivityCode extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if(code4.getText().toString().equals("")){
                     code3.requestFocus();
+                }else{codeRetrie();
+
                 }
             }
         });
@@ -150,6 +157,36 @@ public class ActivityCode extends AppCompatActivity {
             }
         };
         count.start();
+    }
+
+    public void codeRetrie()
+    {
+        SessionManager sessionManager = new SessionManager(this);
+        String email = sessionManager.getEmail();
+        String code = code1.getText().toString() + code2.getText().toString() + code3.getText().toString()+code4.getText().toString();
+        sessionManager.saveCode(code);
+        ApiClient apiClient  = new ApiClient();
+        apiClient.getApiService(this).signin(email, code)
+                .enqueue(new Callback<SendCodeResponse>() {
+                    @Override
+                    public void onResponse(Call<SendCodeResponse> call, Response<SendCodeResponse> response) {
+                        if(!response.isSuccessful())
+                        {
+
+                            return;
+                        }
+                        String str = response.message();
+                        sessionManager.saveToken(SendCodeResponse.getMessage());
+                        Intent intent = new Intent(ActivityCode.this, PinActivity.class);
+                        startActivity(intent);
+                        return;
+                    }
+
+                    @Override
+                    public void onFailure(Call<SendCodeResponse> call, Throwable t) {
+
+                    }
+                });
     }
 
 };
